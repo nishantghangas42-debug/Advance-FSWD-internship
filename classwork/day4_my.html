@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>my college is good </h1>
+    <h2 id="1"></h2>
+
+    <ul id="list1"></ul>
+
+    <ul>
+        <li>mango</li>
+        <li>banana</li>
+    </ul>
+
+    <div id="box"></div>
+
+    <button id="btn1">Click</button>
+
+
+
+    <script>
+        const heading = document.querySelector("h1");
+        console.log(heading);
+
+        const btn = document.querySelector("li");
+        console.log(btn);
+        console.log(btn.parentElement);// to get parent element
+
+        const head = document.getElementById("*1")
+        heading.textContent ="hi this is nishant";
+        
+        const box =document.getElementById("box");
+        box.innerHTML = `<p> my name is nishant</p> <br>
+        <button> Submit </button>`
+
+        // create element
+
+        const list1 = document.getElementById("list1")
+        const li =document.createElement("li");
+        li.textContent="My value is ac ";
+        list1.appendChild(li)
+
+        const btnm=document.getElementById("btn1")
+        
+        
+    </script>
+    
+</body>
+</html>
