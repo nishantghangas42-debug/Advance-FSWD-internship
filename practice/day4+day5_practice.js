@@ -1,11 +1,10 @@
-/*
-1
-Yeh code kya print karega?
+
+
 try { throw new Error('oops') } catch(e) {
 console.log(e.message, e instanceof Error)
 } finally { console.log('done') }
-PREDICT OUTPUT DAY 4
-*/
+
+
 
 /* Output -> 
 oops true
@@ -221,13 +220,13 @@ CODE KARO DAY 4
 // Sab fail ho jaayein toh custom MaxRetriesError throw karo with attempt count.
 // CODE KARO DAY 4 HARD
 
-class MaxRetriesError extends Error {
-  constructor(message, attempts) {
-    super(message);
-    this.name = "MaxRetriesError";
-    this.attempts = attempts;
-  }
-}
+// class MaxRetriesError extends Error {
+//   constructor(message, attempts) {
+//     super(message);
+//     this.name = "MaxRetriesError";
+//     this.attempts = attempts;
+//   }
+// }
 
 // async function retry(fn, times) {
 //   let lastError;
@@ -266,22 +265,22 @@ main.js mein sab import karke test karo.
 CODE KARO DAY 4
 */
 
-// mathUtils.js
-export function add(a, b) { return a + b; }
-export function sub(a, b) { return a - b; }
-export function mul(a, b) { return a * b; }
-export function div(a, b) {
-  if (b === 0) throw new Error("Division by zero");
-  return a / b;
-}
+// // mathUtils.js
+// export function add(a, b) { return a + b; }
+// export function sub(a, b) { return a - b; }
+// export function mul(a, b) { return a * b; }
+// export function div(a, b) {
+//   if (b === 0) throw new Error("Division by zero");
+//   return a / b;
+// }
 
-// main.js
-import { add, sub, mul, div } from './mathUtils.js';
-console.log(add(2, 3));   // 5
-console.log(sub(5, 2));   // 3
-console.log(mul(4, 3));   // 12
-console.log(div(10, 2));  // 5
-// console.log(div(5, 0)); // Error
+// // main.js
+// import { add, sub, mul, div } from './mathUtils.js';
+// console.log(add(2, 3));   // 5
+// console.log(sub(5, 2));   // 3
+// console.log(mul(4, 3));   // 12
+// console.log(div(10, 2));  // 5
+// // console.log(div(5, 0)); // Error
 
 /*
 15
@@ -292,15 +291,15 @@ CODE KARO DAY 4
 */
 
 // logger.js
-function log(level, msg) {
-  console.log(`[${level}] ${msg}`);
-}
-module.exports = { log }; // named export
+// function log(level, msg) {
+//   console.log(`[${level}] ${msg}`);
+// }
+// module.exports = { log }; // named export
 
-// app.js
-const { log } = require('./logger.js');
-log("INFO", "App started");
-log("ERROR", "Something went wrong");
+// // app.js
+// const { log } = require('./logger.js');
+// log("INFO", "App started");
+// log("ERROR", "Something went wrong");
 
 /*
 16
@@ -310,32 +309,32 @@ Plugin exist nahi kare toh custom PluginNotFoundError with plugin name.
 CODE KARO DAY 4 HARD
 */
 
-class PluginNotFoundError extends Error {
-  constructor(name) {
-    super(`Plugin ${name} not found`);
-    this.name = "PluginNotFoundError";
-    this.plugin = name;
-  }
-}
+// class PluginNotFoundError extends Error {
+//   constructor(name) {
+//     super(`Plugin ${name} not found`);
+//     this.name = "PluginNotFoundError";
+//     this.plugin = name;
+//   }
+// }
 
-async function loadPlugin(name) {
-  try {
-    const module = await import(`./plugins/${name}.js`);
-    return module;
-  } catch {
-    throw new PluginNotFoundError(name);
-  }
-}
+// async function loadPlugin(name) {
+//   try {
+//     const module = await import(`./plugins/${name}.js`);
+//     return module;
+//   } catch {
+//     throw new PluginNotFoundError(name);
+//   }
+// }
 
 // Example usage
-(async () => {
-  try {
-    const plugin = await loadPlugin("sample");
-    plugin.run();
-  } catch (err) {
-    console.log(`${err.name}: ${err.message}`);
-  }
-})();
+// (async () => {
+//   try {
+//     const plugin = await loadPlugin("sample");
+//     plugin.run();
+//   } catch (err) {
+//     console.log(`${err.name}: ${err.message}`);
+//   }
+// })();
 
 /*
 17
@@ -346,19 +345,19 @@ CODE KARO DAY 4
 */
 
 // config.js
-const config = {
-  env: "development",
-  port: 3000,
-  dbUrl: "mongodb://localhost:27017/test"
-};
-export default config;
+// const config = {
+//   env: "development",
+//   port: 3000,
+//   dbUrl: "mongodb://localhost:27017/test"
+// };
+// export default config;
 
-// main.js
-import config from './config.js';
-for (const [key, value] of Object.entries(config)) {
-  if (!value) throw new Error(`Missing config value: ${key}`);
-  console.log(`${key}: ${value}`);
-}
+// // main.js
+// import config from './config.js';
+// for (const [key, value] of Object.entries(config)) {
+//   if (!value) throw new Error(`Missing config value: ${key}`);
+//   console.log(`${key}: ${value}`);
+// }
 
 /*
 18
@@ -369,27 +368,27 @@ Sync aur async dono handle kare.
 CODE KARO DAY 4 HARD
 */
 
-function errorBoundary(fn) {
-  return async (...args) => {
-    try {
-      const result = await fn(...args);
-      return { ok: true, data: result };
-    } catch (e) {
-      return { ok: false, error: e.message };
-    }
-  };
-}
+// function errorBoundary(fn) {
+//   return async (...args) => {
+//     try {
+//       const result = await fn(...args);
+//       return { ok: true, data: result };
+//     } catch (e) {
+//       return { ok: false, error: e.message };
+//     }
+//   };
+// }
 
-// Example
-const safeFn = errorBoundary(async (x) => {
-  if (x < 0) throw new Error("Negative!");
-  return x * 2;
-});
+// // Example
+// const safeFn = errorBoundary(async (x) => {
+//   if (x < 0) throw new Error("Negative!");
+//   return x * 2;
+// });
 
-(async () => {
-  console.log(await safeFn(5));   // { ok: true, data: 10 }
-  console.log(await safeFn(-1));  // { ok: false, error: "Negative!" }
-})();
+// (async () => {
+//   console.log(await safeFn(5));   // { ok: true, data: 10 }
+//   console.log(await safeFn(-1));  // { ok: false, error: "Negative!" }
+// })();
 
 /*
 19
@@ -400,24 +399,24 @@ CODE KARO DAY 4
 */
 
 // stringUtils.js
-export function capitalize(str) { return str[0].toUpperCase() + str.slice(1); }
+// export function capitalize(str) { return str[0].toUpperCase() + str.slice(1); }
 
-// arrayUtils.js
-export function first(arr) { return arr[0]; }
+// // arrayUtils.js
+// export function first(arr) { return arr[0]; }
 
-// objectUtils.js
-export function keys(obj) { return Object.keys(obj); }
+// // objectUtils.js
+// export function keys(obj) { return Object.keys(obj); }
 
-// index.js
-export * from './stringUtils.js';
-export * from './arrayUtils.js';
-export * from './objectUtils.js';
+// // index.js
+// export * from './stringUtils.js';
+// export * from './arrayUtils.js';
+// export * from './objectUtils.js';
 
-// main.js
-import { capitalize, first, keys } from './index.js';
-console.log(capitalize("hello")); // Hello
-console.log(first([1,2,3]));      // 1
-console.log(keys({a:1,b:2}));     // ["a","b"]
+// // main.js
+// import { capitalize, first, keys } from './index.js';
+// console.log(capitalize("hello")); // Hello
+// console.log(first([1,2,3]));      // 1
+// console.log(keys({a:1,b:2}));     // ["a","b"]
 
 /*
 20
