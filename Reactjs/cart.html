@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+     <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+<div id="root"></div>
+
+<script>
+
+    const img = React.createElement("div",{style:{
+        width:"500px",
+        height:"500px",
+        border:"3px solid red",
+        display:"flex",
+        flexDirection:"column",
+        alignItems:"center",
+        justifyContent :"center",
+        gap:"10px"
+    }},
+     React.createElement("img",{src:"https://www.bing.com/th/id/OIP.v9AlYMKJBRJQyx9MXN3n-gHaHa?w=193&h=193&c=8&rs=1&qlt=90&o=6&dpr=2&pid=3.1&rm=2"}),
+    React.createElement("p"),"Paneer , Pizza , Cold Drink",
+    React.createElement("button", {style:{
+
+    }} ,"click"),
+)
+     ReactDOM.createRoot(document.getElementById("root")).render(img)
+</script>
+    
+</body>
+</html>

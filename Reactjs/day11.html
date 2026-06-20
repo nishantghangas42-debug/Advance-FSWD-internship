@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+</head>
+<body>
+<!-- 
+    <p>Hello</p>
+    <div id="root"></div>
+
+    <script>
+
+        const heading = React.createElement("h1",{id:"heading"},"My first heading using react")
+         ReactDOM.createRoot(document.getElementById("root")).render(heading)
+    </script>
+     -->
+
+     <!-- jsx  to direct render our content without using any method -->
+
+     <div id="root"></div>
+
+     <script>
+        const h1 = <h1>hello</h1>
+        ReactDOM.createRoot(document.getElementById("root")).render(h1)
+     </script>
+
+
+</body>
+</html>
