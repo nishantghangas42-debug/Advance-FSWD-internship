@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import Navbar from "./component/navbar";
 import MainLoanding from "./component/MainLoanding.jsx";
+import Checksyntheticevent from "./component/check syntheticevent.js";
+import Formvalidation from "./component/formvalidation.js";
 // import FirstApp from "./component/day13.js";
 
 const App = () => {
@@ -197,6 +199,8 @@ const App = () => {
 
   return (
     <div>
+      <Formvalidation />
+      <Checksyntheticevent />
       <Navbar cartCount={cartItems.length} onCartClick={toggleCart} />
 
       {showCart && (
